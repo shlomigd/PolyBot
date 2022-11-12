@@ -7,7 +7,7 @@ pipeline {
                 sh '''
                 pip3 install -r requirements.txt
                 python3 -m pytest --junitxml results.xml tests
-                python3 -m pylint -f parseable --reports=no *.py > pylint.log
+                python -m pylint -f parseable --reports=no *.py > pylint.log
                 '''
             }
         }
