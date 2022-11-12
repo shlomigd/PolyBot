@@ -12,7 +12,7 @@ pipeline {
         }
         stage('Functional test') {
             steps {
-                sh 'python -m pylint -f parseable --reports=no *.py > pylint.log'
+                sh 'python3 -m pylint -f parseable --reports=no *.py > pylint.log'
             }
         }
     }
