@@ -17,14 +17,14 @@ pipeline {
         }
     }
     post {
-    always {
-        junit allowEmptyResults: true, testResults: 'results.xml'
-        sh 'cat pylint.log'
-        recordIssues (
-          enabledForFailure: true,
-          aggregatingResults: true,
-          tools: [pyLint(name: 'Pylint', pattern: '**/pylint.log')]
-        )
+        always {
+            junit allowEmptyResults: true, testResults: 'results.xml'
+            sh 'cat pylint.log'
+            recordIssues (
+                enabledForFailure: true,
+                aggregatingResults: true,
+                tools: [pyLint(name: 'Pylint', pattern: '**/pylint.log')]
+            )
+        }
     }
-}
 }
