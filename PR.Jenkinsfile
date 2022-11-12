@@ -7,13 +7,12 @@ pipeline {
                 sh '''
                 pip3 install -r requirements.txt
                 python3 -m pytest --junitxml results.xml tests
-                python -m pylint -f parseable --reports=no *.py > pylint.log
                 '''
             }
         }
         stage('Functional test') {
             steps {
-                echo "testing"
+                sh 'python -m pylint -f parseable --reports=no *.py > pylint.log'
             }
         }
     }
