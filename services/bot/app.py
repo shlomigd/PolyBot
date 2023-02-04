@@ -84,55 +84,6 @@ class YoutubeObjectDetectBot(Bot):
                 self.commands(update, context)
             else:
                 self.send_text(update, f'Wrong command ,Please try again.', chat_id=chat_id)
-            """
-            elif lower_txt.startswith("@addfile"):
-                self.add_file(update, context)
-
-            elif lower_txt.startswith("@addall"):
-                self.add_all_files(update, context)
-
-            elif lower_txt.startswith("@list"):
-                self.list(update, context)
-
-            elif lower_txt.startswith("@playlist"):
-                self.playlist(update, context)
-
-            elif lower_txt.startswith("@delfile"):
-                self.delfile(update, context)
-
-            elif lower_txt.startswith("@delall"):
-                self.delallfiles(update, context)
-
-            elif lower_txt.startswith("@commands"):
-                self.commands(update, context)
-
-            else:
-                self.send_text(update, f'Wrong command ,Please try again.', chat_id=chat_id)
-
-            
-                        if "@" not in update.message.text:
-
-                        elif "@addfile" in update.message.text.lower():
-                            self.add_file(update, context)
-
-                        elif "@addall" in update.message.text.lower():
-                            self.add_all_files(update, context)
-
-                        elif "@list" in update.message.text.lower():
-                            self.list(update, context)
-
-                        elif "@playlist" in update.message.text.lower():
-                            self.playlist(update, context)
-
-                        elif "@delfile" in update.message.text.lower():
-                            self.delfile(update, context)
-
-                        elif "@delall" in update.message.text.lower():
-                            self.delallfiles(update, context)
-
-                        elif "@commands" in update.message.text.lower():
-                            self.commands(update, context)
-                        """
 
         except botocore.exceptions.ClientError as error:
             logger.error(error)
@@ -144,7 +95,7 @@ class YoutubeObjectDetectBot(Bot):
         downloaded_videos = search_download_youtube_video(update.message.text, False, 7)
         i = 1
         for k, v in downloaded_videos.items():
-            self.send_text(update, f'To upload11 the following video file write @addfile{i} ', chat_id=chat_id)
+            self.send_text(update, f'To upload the following video file write @addfile{i} ', chat_id=chat_id)
             self.send_text(update, f'*********************', chat_id=chat_id)
             self.send_text(update, v, chat_id=chat_id)
             self.send_text(update, f'*********************', chat_id=chat_id)
