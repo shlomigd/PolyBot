@@ -15,12 +15,6 @@ def process_msg(msg):
         logger.info(f'After download')
         for k, v in downloaded_videos.items():
             logger.info(f'processing message {k}')
-            """
-            s3.upload_file(xlist[0], config.get('videos_bucket'), xlist[0], ExtraArgs={'Metadata': {'URL': xlist[1]}})
-            s3.upload_file(video, config.get('videos_bucket'), video, ExtraArgs={'Metadata': {'URL': video}})
-             Bot.send_text(chat_id, f'Something ')
-            """
-
             s3.upload_file(k, config.get('videos_bucket'), k)
             os.remove(f'./{k}')
 
