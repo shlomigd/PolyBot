@@ -60,32 +60,57 @@ class YoutubeObjectDetectBot(Bot):
         try:
             chat_id = str(update.effective_message.chat_id)
 
-            if "@" not in update.message.text:
+            if not update.message.text.startswith("@"):
                 self.files_search(update, context)
 
-            elif "@addfile" in update.message.text.lower():
+            elif update.message.text.lower.startswith("@addfile"):
                 self.add_file(update, context)
 
-            elif "@addall" in update.message.text.lower():
+            elif update.message.text.lower.startswith("@addall"):
                 self.add_all_files(update, context)
 
-            elif "@list" in update.message.text.lower():
+            elif update.message.text.lower.startswith("@list"):
                 self.list(update, context)
 
-            elif "@playlist" in update.message.text.lower():
+            elif update.message.text.lower.startswith("@playlist"):
                 self.playlist(update, context)
 
-            elif "@delfile" in update.message.text.lower():
+            elif update.message.text.lower.startswith("@delfile"):
                 self.delfile(update, context)
 
-            elif "@delall" in update.message.text.lower():
+            elif update.message.text.lower.startswith("@delall"):
                 self.delallfiles(update, context)
 
-            elif "@commands" in update.message.text.lower():
+            elif update.message.text.lower.startswith("@commands"):
                 self.commands(update, context)
 
             else:
                 self.send_text(update, f'Wrong command ,Please try again.', chat_id=chat_id)
+
+            """
+                        if "@" not in update.message.text:
+
+                        elif "@addfile" in update.message.text.lower():
+                            self.add_file(update, context)
+
+                        elif "@addall" in update.message.text.lower():
+                            self.add_all_files(update, context)
+
+                        elif "@list" in update.message.text.lower():
+                            self.list(update, context)
+
+                        elif "@playlist" in update.message.text.lower():
+                            self.playlist(update, context)
+
+                        elif "@delfile" in update.message.text.lower():
+                            self.delfile(update, context)
+
+                        elif "@delall" in update.message.text.lower():
+                            self.delallfiles(update, context)
+
+                        elif "@commands" in update.message.text.lower():
+                            self.commands(update, context)
+                        """
 
         except botocore.exceptions.ClientError as error:
             logger.error(error)
