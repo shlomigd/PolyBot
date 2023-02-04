@@ -59,29 +59,29 @@ class YoutubeObjectDetectBot(Bot):
 
         try:
             chat_id = str(update.effective_message.chat_id)
-
+            lower_txt = update.message.text.lower
             if not update.message.text.startswith("@"):
                 self.files_search(update, context)
 
-            elif update.message.text.lower.startswith("@addfile"):
+            elif lower_txt.startswith("@addfile"):
                 self.add_file(update, context)
 
-            elif update.message.text.lower.startswith("@addall"):
+            elif lower_txt.startswith("@addall"):
                 self.add_all_files(update, context)
 
-            elif update.message.text.lower.startswith("@list"):
+            elif lower_txt.startswith("@list"):
                 self.list(update, context)
 
-            elif update.message.text.lower.startswith("@playlist"):
+            elif lower_txt.startswith("@playlist"):
                 self.playlist(update, context)
 
-            elif update.message.text.lower.startswith("@delfile"):
+            elif lower_txt.startswith("@delfile"):
                 self.delfile(update, context)
 
-            elif update.message.text.lower.startswith("@delall"):
+            elif lower_txt.startswith("@delall"):
                 self.delallfiles(update, context)
 
-            elif update.message.text.lower.startswith("@commands"):
+            elif lower_txt.startswith("@commands"):
                 self.commands(update, context)
 
             else:
