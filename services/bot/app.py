@@ -82,6 +82,8 @@ class YoutubeObjectDetectBot(Bot):
 
             elif "@commands" in update.message.text.lower():
                 self.commands(update, context)
+            else:
+                self.send_text(update, f'Wrong command ,Please try again.', chat_id=chat_id)
             """
             elif lower_txt.startswith("@addfile"):
                 self.add_file(update, context)
