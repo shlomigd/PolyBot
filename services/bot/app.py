@@ -59,10 +59,9 @@ class YoutubeObjectDetectBot(Bot):
 
         try:
             chat_id = str(update.effective_message.chat_id)
-
-            if "@" not in update.message.text:
+            lower_txt = update.message.text.lower
+            if not update.message.text.startswith("@"):
                 self.files_search(update, context)
-
             elif "@addfile" in update.message.text.lower():
                 self.add_file(update, context)
 
@@ -83,7 +82,6 @@ class YoutubeObjectDetectBot(Bot):
 
             elif "@commands" in update.message.text.lower():
                 self.commands(update, context)
-
             else:
                 self.send_text(update, f'Wrong command ,Please try again.', chat_id=chat_id)
 
@@ -97,7 +95,7 @@ class YoutubeObjectDetectBot(Bot):
         downloaded_videos = search_download_youtube_video(update.message.text, False, 7)
         i = 1
         for k, v in downloaded_videos.items():
-            self.send_text(update, f'To upload11 the following video file write @addfile{i} ', chat_id=chat_id)
+            self.send_text(update, f'To upload the following video file write @addfile{i} ', chat_id=chat_id)
             self.send_text(update, f'*********************', chat_id=chat_id)
             self.send_text(update, v, chat_id=chat_id)
             self.send_text(update, f'*********************', chat_id=chat_id)
