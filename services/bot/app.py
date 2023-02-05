@@ -95,7 +95,7 @@ class YoutubeObjectDetectBot(Bot):
         downloaded_videos = search_download_youtube_video(update.message.text, False, 7)
         i = 1
         for k, v in downloaded_videos.items():
-            self.send_text(update, f'To upload11111 the following video file write @addfile{i} ', chat_id=chat_id)
+            self.send_text(update, f'To upload the following video file write @addfile{i} ', chat_id=chat_id)
             self.send_text(update, f'*********************', chat_id=chat_id)
             self.send_text(update, v, chat_id=chat_id)
             self.send_text(update, f'*********************', chat_id=chat_id)
